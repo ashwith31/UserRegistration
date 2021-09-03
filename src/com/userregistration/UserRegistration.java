@@ -15,6 +15,7 @@ public class UserRegistration {
 	private static final String LAST_NAME_PATTERN = "^[A-Z][a-zA-Z]{3,}$";
 	private static final String EMAIL_ADDRESS = "^[a-z][a-zA-Z0-9]+([._+#-][a-zA-Z0-9]+)*@[a-zA-Z0-93]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
 	private static final String MOBILE_FORMAT = "^[1-9]{2}\\s[1-9][0-9]{9}$";
+	private static final String PASSWORD = "^[A-Z0-9a-z]{8,}$";
 
 	/**
 	 * method for producing the Result in terms of Valid or Invalid
@@ -77,12 +78,26 @@ public class UserRegistration {
 		printingResult();
 	}
 
+	/**
+	 * method for Validating Password.
+	 *  Rule1: minimum 8 Characters
+	 */
+	private void passwordValidation() {
+		System.out.println("Enter the Password");
+		String password = sc.nextLine();
+		// Matching the given password with regular expression
+		Pattern pattern = Pattern.compile(PASSWORD);
+		result = pattern.matcher(password).matches();
+		printingResult();
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration Problem");
 		UserRegistration userRegistration = new UserRegistration();
 		userRegistration.firstNameValidation();
 		userRegistration.lastNameValidation();
 		userRegistration.eMailAddressValidation();
-		 userRegistration.mobileNumberValidation();
+		userRegistration.mobileNumberValidation();
+		userRegistration.passwordValidation();
 	}
 }
