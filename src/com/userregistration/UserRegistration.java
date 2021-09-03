@@ -80,9 +80,10 @@ public class UserRegistration {
 
 	/**
 	 * method for Validating Password.
-	 *  Rule1: minimum 8 Characters
-	 *  Rule2: Atleast 1 Uppercase Letter
+	 *  Rule1: minimum 8 Characters.
+	 *  Rule2: Atleast 1 Uppercase Letter.
 	 *  Rule3:Atleast 1 number.
+	 *  Rule4:Atleast one special character.
 	 */
 	private void passwordValidation() {
 		System.out.println("Enter the Password");
