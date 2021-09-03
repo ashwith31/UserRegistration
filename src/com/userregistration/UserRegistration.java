@@ -15,16 +15,16 @@ public class UserRegistration {
 	private static final String LAST_NAME_PATTERN = "^[A-Z][a-zA-Z]{3,}$";
 	private static final String EMAIL_ADDRESS = "^[a-z][a-zA-Z0-9]+([._+#-][a-zA-Z0-9]+)*@[a-zA-Z0-93]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
 	private static final String MOBILE_FORMAT = "^[1-9]{2}\\s[1-9][0-9]{9}$";
-	private static final String PASSWORD = "[A-Z{1,}0-9a-z]{8,}$";
+	private static final String PASSWORD = "[A-Z{1,}a-z]{8,}$";
 
 	/**
 	 * method for producing the Result in terms of Valid or Invalid
 	 */
 	public void printingResult() {
 		if (result) {
-			System.out.println("You Entered result is Proper and Valid");
+			System.out.println("Your Entered result is Proper and Valid");
 		} else {
-			System.out.println("You Entered result is Invalid. Try again.");
+			System.out.println("Your Entered result is Invalid. Try again.");
 		}
 	}
 
@@ -81,6 +81,7 @@ public class UserRegistration {
 	/**
 	 * method for Validating Password.
 	 *  Rule1: minimum 8 Characters
+	 *  Rule2: Atleast 1 Uppercase Letter
 	 */
 	private void passwordValidation() {
 		System.out.println("Enter the Password");
