@@ -14,6 +14,7 @@ public class UserRegistration {
 	private static final String FIRST_NAME_PATTERN = "^[A-Z][a-zA-Z]{3,}$";
 	private static final String LAST_NAME_PATTERN = "^[A-Z][a-zA-Z]{3,}$";
 	private static final String EMAIL_ADDRESS = "^[a-z][a-zA-Z0-9]+([._+#-][a-zA-Z0-9]+)*@[a-zA-Z0-93]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
+	private static final String MOBILE_FORMAT = "^[1-9]{2}\\s[1-9][0-9]{9}$";
 
 	/**
 	 * method for producing the Result in terms of Valid or Invalid
@@ -54,7 +55,6 @@ public class UserRegistration {
 
 	/**
 	 * method for EmailAddress Validation
-	 * 
 	 */
 	private void eMailAddressValidation() {
 		System.out.println("Enter the Your Email Address");
@@ -65,11 +65,24 @@ public class UserRegistration {
 		printingResult();
 	}
 
+	/**
+	 * method for Mobile Number Validation
+	 */
+	private void mobileNumberValidation() {
+		System.out.println("Enter the Mobile Number");
+		String mobileNumber = sc.nextLine();
+		// Matching the given PhoneNumber with regular expression
+		Pattern pattern = Pattern.compile(MOBILE_FORMAT);
+		result = pattern.matcher(mobileNumber).matches();
+		printingResult();
+	}
+
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration Problem");
 		UserRegistration userRegistration = new UserRegistration();
 		userRegistration.firstNameValidation();
 		userRegistration.lastNameValidation();
 		userRegistration.eMailAddressValidation();
+		 userRegistration.mobileNumberValidation();
 	}
 }
