@@ -13,7 +13,7 @@ public class UserRegistration {
 	// Regex Patterns
 	private static final String FIRST_NAME_PATTERN = "^[A-Z][a-zA-Z]{3,}$";
 	private static final String LAST_NAME_PATTERN = "^[A-Z][a-zA-Z]{3,}$";
-	 
+	private static final String EMAIL_ADDRESS = "^[a-z][a-zA-Z0-9]+([._+#-][a-zA-Z0-9]+)*@[a-zA-Z0-93]+.[a-zA-Z]{2,3}(.[a-zA-Z]{2,3})?$";
 
 	/**
 	 * method for producing the Result in terms of Valid or Invalid
@@ -38,24 +38,38 @@ public class UserRegistration {
 		result = pattern.matcher(firstName).matches();
 		printingResult();
 	}
+
 	/**
-     *  method for First Name Validation
-     * Rule: first name starts with Cap and has minimum 3 characters
-     *
-     */
-    private void lastNameValidation () {
-        System.out.println("Enter the Last Name");
-        String lastName = sc.nextLine();
-        Pattern pattern = Pattern.compile(LAST_NAME_PATTERN);
-        result = pattern.matcher(lastName).matches();
-        printingResult();
-    }
-	
+	 * method for First Name Validation Rule: first name starts with Cap and has
+	 * minimum 3 characters
+	 *
+	 */
+	private void lastNameValidation() {
+		System.out.println("Enter the Last Name");
+		String lastName = sc.nextLine();
+		Pattern pattern = Pattern.compile(LAST_NAME_PATTERN);
+		result = pattern.matcher(lastName).matches();
+		printingResult();
+	}
+
+	/**
+	 * method for EmailAddress Validation
+	 * 
+	 */
+	private void eMailAddressValidation() {
+		System.out.println("Enter the Your Email Address");
+		String eMailAddress = sc.nextLine();
+		// Matching the given Email Address with regular expression
+		Pattern pattern = Pattern.compile(EMAIL_ADDRESS);
+		result = pattern.matcher(eMailAddress).matches();
+		printingResult();
+	}
 
 	public static void main(String[] args) {
 		System.out.println("Welcome to User Registration Problem");
 		UserRegistration userRegistration = new UserRegistration();
 		userRegistration.firstNameValidation();
-		 userRegistration.lastNameValidation();
+		userRegistration.lastNameValidation();
+		userRegistration.eMailAddressValidation();
 	}
 }
